@@ -1,0 +1,116 @@
+<!-- <p>admin works!</p> -->
+
+
+<div class="card mb-5">
+    <div class="card-header">
+      Add New product 
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="addNewproduct()" #signUpForm="ngForm">
+        <div class="form-group row mb-2">
+          <label for="counter" class="col-md-2 col-form-label">Counter</label>
+          <div class="col-md-8">
+            <input type="number" class="form-control" name="counter" id="counter" placeholder="Counter (required)"
+              required  [(ngModel)]="newProduct.counter" #counterInput="ngModel"
+              [ngClass]="{'is-invalid':(counterInput.touched || counterInput.dirty)&&counterInput.invalid}">
+  
+            <span class="invalid-feedback">
+              <span *ngIf="counterInput.errors?.['required']">counter is required</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="NameId">Name product </label>
+          <div class="col-md-8">
+            <input class="form-control" id="NameId" type="text" placeholder="Name (required)" required
+               name="Name" [(ngModel)]="newProduct.name" #NameInput="ngModel"
+              [ngClass]="{'is-invalid':(NameInput.touched || NameInput.dirty)&&NameInput.invalid}" />
+            <span class="invalid-feedback">
+              <span *ngIf="NameInput.errors?.['required']">Last Name is required</span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="priceId">Price</label>
+          <div class="col-md-8">
+            <input class="form-control" id="priceId" type="number" placeholder="price (required)" required 
+              name="price" [(ngModel)]="newProduct.price" #priceInput="ngModel"
+              [ngClass]="{'is-invalid':(priceInput.touched || priceInput.dirty)&& !priceInput.valid}" />
+  
+            <span class="invalid-feedback">
+              <span *ngIf="priceInput.errors?.['required']">Price is required</span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="quantityId">quantity</label>
+            <div class="col-md-8">
+              <input class="form-control" id="quantityId" type="number" placeholder="quantity (required)" required 
+                name="quantity" [(ngModel)]="newProduct.quantity" #quantityInput="ngModel"
+                [ngClass]="{'is-invalid':(quantityInput.touched || quantityInput.dirty)&& !quantityInput.valid}" />
+    
+              <span class="invalid-feedback">
+                <span *ngIf="quantityInput.errors?.['required']">quantity is required</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="materialId">material</label>
+            <div class="col-md-8">
+              <input class="form-control" id="materialId" type="text" placeholder="material (required)" required 
+                name="material" [(ngModel)]="newProduct.material" #materialInput="ngModel"
+                [ngClass]="{'is-invalid':(materialInput.touched || materialInput.dirty)&& !materialInput.valid}" />
+    
+              <span class="invalid-feedback">
+                <span *ngIf="materialInput.errors?.['required']">material is required</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="categoryidId">categoryid</label>
+            <div class="col-md-8">
+              <input class="form-control" id="categoryidId" type="number" placeholder="categoryid (required)" required 
+                name="categoryid" [(ngModel)]="newProduct.categoryid" #categoryidInput="ngModel"
+                [ngClass]="{'is-invalid':(categoryidInput.touched || categoryidInput.dirty)&& !categoryidInput.valid}" />
+    
+              <span class="invalid-feedback">
+                <span *ngIf="categoryidInput.errors?.['required']">categoryid is required</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="pridimagurlId">Image Url</label>
+            <div class="col-md-8">
+              <input class="form-control" id="pridimagurlId" type="text" placeholder="Image Url (required)" required 
+                name="pridimagurl" [(ngModel)]="newProduct.pridimagurl" #pridimagurlInput="ngModel"
+                [ngClass]="{'is-invalid':(pridimagurlInput.touched || pridimagurlInput.dirty)&& !pridimagurlInput.valid}" />
+    
+              <span class="invalid-feedback">
+                <span *ngIf="pridimagurlInput.errors?.['required']"> Image Url  is required</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="detailsId">Image details</label>
+            <div class="col-md-8">
+              <input class="form-control" id="detailsId" type="text" placeholder="details (required)" required 
+                name="details" [(ngModel)]="newProduct.details" #detailsInput="ngModel"
+                [ngClass]="{'is-invalid':(detailsInput.touched || detailsInput.dirty)&& !detailsInput.valid}" />
+    
+              <span class="invalid-feedback">
+                <span *ngIf="detailsInput.errors?.['required']"> details is required</span>
+              </span>
+            </div>
+          </div>
+        <button type="submit" class="btn btn-success" [disabled]="signUpForm.invalid">Submit</button>
+  
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,6 @@
+form child to parent => @Output 
+from parent to child => @Input 
+
+
+// Day 6 
+// Api

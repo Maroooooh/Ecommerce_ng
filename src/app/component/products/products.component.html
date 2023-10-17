@@ -1,0 +1,129 @@
+<!-- <p>products works!</p> -->
+
+<!-- <h1>productname  : {{productname }}</h1>
+<h2>productquantity : {{productquantity}}</h2>
+<h3>productprice : {{productprice}}</h3> -->
+
+<!-- Day 2  --> 
+
+
+    <!-- EVENT -->
+    <!-- <button class="btn btn-primary" (click) = "toggleImage()"> Show/hide </button> -->
+
+    <!-- 2 waybinding 
+        change the value if i use this value 
+    -->
+    <!-- <div class="mt-3">
+        UserName : 
+        <input type ="text" id="username" class="form-control" [(ngModel)] ="username">
+    </div>
+
+    <p>{{username}}</p> -->
+
+
+    <!-- filter by name  -->
+
+    <!-- <div class="mt-3">
+        filter by name  : 
+        <input type ="text" id="prdname" class="prdname" [(ngModel)] ="listFilter">
+    </div>
+
+    <p>{{listFilter}}</p>
+
+
+<div class = "row"> -->
+    <!-- propaplty binding -->
+    <!-- [class.text-danger] = "prod.price > 20000"    
+         [style.color] ="(prod.price>20000) ? 'blue':'green'"
+        [style.background-color] = "(prod.price>20000) ? 'yellow':'red' "
+    
+    -->
+    <!-- <div class="col-sm-4 mb-4" *ngFor = "let prod of productwithfilter" 
+
+        >
+       <h2> {{prod.id}}</h2>
+       <h3> {{prod.name}}</h3>
+       <img src = "{{prod.pridimagurl}}" class="img-fluid" *ngIf='flagimageshown'      style="display: flex; align-items: center; justify-content: center;"> 
+       <button class="btn btn-danger" [disabled] = "prod.quantity == 0 "> Add to card</button>
+    </div>
+
+</div> -->
+
+
+<!--                                       Lab                          -->
+
+<!--  -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!-- <br> <br>  -->
+
+<!-- ///////////////////////////////////////////////////////////////////////////// -->
+<div class = "container">
+    <!-- <h1 style="align-items: center; "> {{storedata.storeName}}</h1>
+<img src ="{{storedata.logo}}" *ngIf='flagimageshown' ImgStyle style="width: 700px;height: 300px;"> -->
+<!-- <h4 *ngIf='showmsg'>  Thanks for purchasing from our Store  : {{ClientName}} </h4>
+ <h2> Branches </h2>
+<h3 *ngFor="let b of storedata.branches"> {{b}}</h3> -->
+
+<!-- <button class="btn btn-primary" (click) = "toggleImage()"> BUY</button>  -->
+<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime harum, corporis esse eius unde quo itaque, incidunt recusandae quod, nobis perferendis debitis enim qui porro magnam ex! Doloremque, facere ullam?
+
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam nihil veniam enim et laudantium rem maxime officiis ratione obcaecati nostrum quam aspernatur id, ut exercitationem suscipit dicta beatae asperiores.
+</p> -->
+<br> <br> 
+  
+    <div class="row">
+        <ng-container *ngFor = "let prod of productwithfilter" >
+            <div class="col-sm-4 mb-4 " *ngIf="prod.quantity> 0 "  [ngClass] ="{'text-warning' : prod.quantity < 3 }"  style="width: 350px; height: 570px; margin-left: 20px;">
+                <img src = "{{prod.pridimagurl}}" (click) = "productdetails(prod.id)" class="img-fluid mt-4"style="width: 350px; height: 350px;" ImgStyle > 
+                <!-- <img src = "{{prod.pridimagurl}}"  class="img-fluid mt-4"style="width: 350px; height: 350px;" ImgStyle [routerLink]="['/productdetails',prod.id]" >  -->
+        
+               <!-- <h2> {{prod.id}}</h2> -->
+               <h3> {{prod.name | uppercase}}</h3>
+               <h4>{{prod.price | currency }}</h4>
+    
+               <h4>{{prod.price }}</h4>
+               <button class="btn btn-danger" [disabled] = "prod.quantity == 0 " (click)="AddToCard(prod)" > BUY</button>
+               <p> Quantity : {{prod.quantity}}</p>
+
+               <!-- <div [ngSwitch]="prod.quantity" >
+                <div *ngSwitchCase = 1> Last one item</div>
+                <div *ngSwitchCase = 2> Last two item</div>
+                <div *ngSwitchDefault> in Stock </div>
+
+
+               </div>
+               <ng-container *ngIf="prod.price>200;else outReference">Very Good </ng-container>
+
+                template reference => #referenceName -->
+              <!-- <ng-template #outReference>Good</ng-template>  -->
+              <button id="updateButton" class="btn btn-primary">Update</button>
+              <button id="deleteButton" class="btn btn-danger" (click) = "DeleteIt(prod.id)">Delete</button>
+          
+            </div>
+        </ng-container>
+        
+    </div>
+    
+    
+    <br> <br> <hr > 
+    <h1>Category</h1>
+    <!-- Create a dropdown list -->
+    <select (change)="searchwithcategory($event)">
+        <option value="" >Select a category</option>
+        <option *ngFor="let cat of categorylist" [value]="cat.categoryid">{{ cat.categoryname }}</option>
+      </select>
+    <ul>
+        <li *ngFor="let prd of productsAfterSearch">
+          {{prd.name}}
+        </li>
+    </ul>
+
+</div>
+
+
+<!-- data pipe -->
+<!-- <p> {{date1|date : 'short'}}</p>
+
+
+<h1> Credet card format </h1>
+<h5 > {{credit | changeformat }} </h5> -->

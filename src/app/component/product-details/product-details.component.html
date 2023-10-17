@@ -1,0 +1,73 @@
+<!-- <p>product-details works!</p> -->
+<!-- <div class="container">
+
+  <div class="row" *ngIf="product">    
+     if the output is an object not undefined or we makw {{product?.name}} -->
+    <!-- <div class="col-sm-6">
+      <img [src]="product. pridimagurl " alt="">
+    </div>
+    <div class="col-sm-6">
+
+      <h2>{{product.name}}</h2>
+      <h4> {{product.details}}</h4>
+    </div>
+  </div>
+</div> --> 
+
+
+<!-- day  6  -->
+<div class="col-md-5 mx-auto">
+  <div class="small fw-light">search with Category</div>
+  <div class="input-group">
+    <input class="form-control border-end-0 border rounded-pill" type="text"
+      id="example-search-input" #inputValue>
+    <span class="input-group-append">
+      <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button" (click)="searchwithcategory(inputValue.value)">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let prd of productsAfterSearch">
+    {{prd.name}}
+  </li>
+</ul>
+
+<!-- ================================================================ -->
+<div class="container">
+
+    <div class="row mb-4">
+      <div class="col-sm-6">
+        <h3>
+          <ng-container [ngSwitch]="product?.quantity">
+            <ng-container *ngSwitchCase="0">Out Of Stock</ng-container>
+            <ng-container *ngSwitchCase="1">Last one Item!</ng-container>
+            <ng-container *ngSwitchCase="2">Last 2 Item!</ng-container>
+            <ng-container *ngSwitchCase="3">Last 3 Item!</ng-container>
+            <ng-container *ngSwitchDefault>In Stock</ng-container>
+          </ng-container>
+        </h3>
+        <img [src]="product?.pridimagurl " class="img-fluid">
+      </div>
+      <div class="col-sm-6">
+  
+        <h2 class="text-danger">Products Details</h2>
+        <h3 class="text-primary">{{product?.name}}</h3>
+        <h3>{{product?.details}}</h3>
+        <h5>Price: {{product?.price}}</h5>
+        <!-- <h5>Material: {{product?.Material}}</h5> -->
+  
+      </div>
+    </div>
+  </div>
+
+
+  <br> <br> 
+
+  <button class="button-91" (click)="backFunc()">Back</button>
+<div class="d-flex justify-content-center" role="group" aria-label="Basic example">
+  <button class="border-0" (click)="previousFunc()" [disabled]="curProdId==productIDSList[0]"><i class="fa-solid fa-angles-left fs-4 text-primary"></i></button>
+  <button class="border-0" (click)="nextFunc()" [disabled]="curProdId==productIDSList[productIDSList.length-1]"><i class="fa-solid fa-angles-right fs-4"></i></button>
+</div>
